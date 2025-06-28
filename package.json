@@ -1,0 +1,63 @@
+{
+  "name": "terminal-ui",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://dvdmsk.github.io/terminal-ui",
+  "dependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.126",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:styles": "stylelint '**/*.{css,scss,html}'",
+    "format": "prettier --write '**/*.{js,ts,jsx,tsx,scss,css,html,json,md}'",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist -b gh-pages --message \"Deploy\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^16.2.0",
+    "parcel": "^2.15.4",
+    "prettier": "^3.6.2",
+    "typescript-eslint": "^8.35.0"
+  }
+}
