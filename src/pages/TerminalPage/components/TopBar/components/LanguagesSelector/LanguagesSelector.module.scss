@@ -1,0 +1,84 @@
+@import '@utils/global';
+
+.LanguagesSelector {
+  position: relative;
+  height: 32px;
+  width: 94.39px;
+
+  &__list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: $dark-blue;
+    width: 94.39px;
+    height: 32px;
+    overflow: hidden;
+    transition: all .3s;
+
+    &_visible {
+      height: 80px;
+
+      & .LanguagesSelector__arrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__lang {
+    color: #fff;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    height: 16px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+
+  &__language {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    order: 2;
+
+    &_active {
+      order: 1;
+
+      & .LanguagesSelector__wrapper {
+        gap: 8px;
+        width: auto;
+        display: flex;
+        align-items: center;
+
+        & .LanguagesSelector__lang {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.87px;
+    width: 48.3px;
+    align-items: center;
+  }
+  &__flag {
+    height: 11px;
+  }
+
+  &__arrow {
+    display: flex;
+    transition: all .3s;
+  }
+}

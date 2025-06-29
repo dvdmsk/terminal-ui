@@ -1,0 +1,36 @@
+@import '@utils/global';
+
+.FilterBlock {
+  display: flex;
+  padding: 8px 21px 9px 20px;
+  align-items: center;
+  background-color: $gray;
+  border-radius: 4px;
+  margin-top: 12px;
+
+  &__controls {
+    margin-left: 20px;
+    display: flex;
+    gap: 12px;
+  }
+
+  &__apply {
+    margin-left: auto;
+    display: flex;
+    justify-content: end;
+    color: white;
+    width: 169;
+    height: 41;
+    background-color: $green;
+    border-radius: 8px;
+    padding: 8px 60px;
+    border: none;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

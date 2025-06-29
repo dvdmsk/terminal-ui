@@ -1,0 +1,30 @@
+@import './vars';
+@import './mixins';
+@import './fonts';
+
+html {
+  font-family: 'Open Sans';
+}
+body {
+  font-family: 'Open Sans';
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, p, ul, li, hr {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+.container {
+  margin: auto;
+  max-width: 1320px;
+  width: 100%;
+}

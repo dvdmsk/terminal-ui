@@ -1,0 +1,158 @@
+@import '@utils/global';
+
+.TerminalItem {
+  display: flex;
+  justify-content: space-between;
+  background-color: $light-gray;
+  border-radius: 9px;
+  padding: 20px 20px 23px;
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  &__label {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    color: $dark-gray;
+    height: 16px;
+
+    &_branch {
+      margin-top: 8px;
+    }
+
+    &_time {
+      margin-top: 28px;
+    }
+  }
+
+  &__text {
+    color: $text-main-dark;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    height: 33px;
+    margin-top: 4px;
+
+    &_branch {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+  }
+
+  &__blockAmaunt {
+    display: flex;
+    gap: 24px;
+    margin-top: 8px;
+  }
+
+  &__amaunt {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 100%;
+    height: 54px;
+  }
+
+  &__currency {
+    border: 1px solid $dark-blue;
+    border-radius: 16px;
+    display: flex;
+    position: relative;
+    height: 32px;
+    align-items: center;
+    padding: 0 10px 0 9px;
+    gap: 10px;
+  }
+
+  &__currencyName {
+    color: $dark-gray;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    height: 25px;
+    display: flex;
+
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    &_active {
+      color: white;
+    }
+  }
+
+  &__currencyBtn {
+    position: absolute;
+    top: 1px;
+    width: 50%;
+    height: 28px;
+    border-radius: 14px;
+    background-color: $green;
+    left: 1px;
+    right: 1px;
+    transition: all .3s;  
+    transform: translateX(calc(100% - 2px));
+
+    &_left {
+      transform: translateX(0);
+    }
+  }
+
+  &__status {
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 14px 8px 20px;
+    background-color: white;
+
+    & p {
+      height: 25px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 100%;
+    }
+
+    &_online {
+      color: #32d199;
+    }
+
+    &_offline {
+      color: #b42154;
+    }
+  }
+
+  &__time {
+    margin-top: 4px;
+    display: flex;
+    gap: 8px;
+
+    & p {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 100%;
+      color: $text-main-dark;
+    }
+  }
+
+  &__update {
+    margin-top: 16px;
+    padding: 8px 24px;
+    background-color: $green;
+    display: flex;
+    gap: 5.5px;
+    border-radius: 8px;
+    border: none;
+
+    & p {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 100%;
+      color: white;
+    }
+  }
+}

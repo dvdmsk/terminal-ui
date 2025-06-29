@@ -1,0 +1,28 @@
+@import '@utils/global';
+
+.SortName {
+  display: flex;
+  flex-direction: column;
+  
+
+  &__title {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    color: $dark-gray;
+    margin-bottom: 4px;
+  }
+  
+  &__order {
+    width: 255px;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+
+    & span {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 100%;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import '@utils/global';
+
+.TerminalList {
+  display: grid;
+  gap: 12px 4px;
+  margin-top: 24px;
+  
+  @include on-desktop {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    height: 681px;
+    
+    overflow: auto;
+  }
+}
