@@ -4,6 +4,16 @@ import classNames from 'classnames';
 import ArrowDownIco from '../../../../../../shared/components/icons/ArrowDownIco/ArrowDownIco';
 import { useTranslation } from 'react-i18next';
 
+import CZ from '../../../../../../assets/img/CZ.png';
+import ENG from '../../../../../../assets/img/ENG.png';
+import SK from '../../../../../../assets/img/SK.png';
+
+const flagMap: Record<string, string> = {
+  CZ,
+  ENG,
+  SK,
+};
+
 enum Lang {
   sk = 'SK',
   eng = 'ENG',
@@ -79,7 +89,7 @@ const LanguagesSelector = () => {
               <p className={styles.LanguagesSelector__lang}>{langValue}</p>
               <img
                 className={styles.LanguagesSelector__flag}
-                src={`src/assets/img/${langValue}.png`}
+                src={flagMap[langValue]}
                 alt={langValue}
               />
             </div>
