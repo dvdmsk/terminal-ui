@@ -46,7 +46,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* Terminal page */}
       <div className="container">
         <TerminalPage />
       </div>
