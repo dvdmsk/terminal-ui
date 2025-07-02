@@ -6,7 +6,7 @@ import { SearchBar } from './components/SearchBar/SearchBar';
 import SortStatus from './components/SortStatus/SortStatus';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from './../../../../app/hooks';
-import { setQueryBranch, setOrderName, setOrderStatus } from './../../../../features/terminal/terminalSlice';
+import { setQueryBranch, setOrderName, setOrderStatus, setCurrentPage } from './../../../../features/terminal/terminalSlice';
 import { Order } from 'src/types/orders';
 
 // The Main Component with Search and Sorting, 
@@ -30,6 +30,7 @@ const FilterBlock = () => {
       dispatch(setOrderStatus(sortStatus));
     }
     dispatch(setQueryBranch(branchInput));
+    dispatch(setCurrentPage(1));
   };
 
   return (

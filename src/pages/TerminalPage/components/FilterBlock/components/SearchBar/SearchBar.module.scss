@@ -19,7 +19,6 @@
     padding: 8px 12px;
     color: $text-main-dark;
     font-weight: 400;
-    font-size: 18px;
     line-height: 100%;
     border: none;
 
@@ -28,6 +27,8 @@
       font-size: 12px;
       line-height: 100%;
       color: $dark-gray;
+      display: flex;
+      align-items: center;
     }
 
     &:focus {

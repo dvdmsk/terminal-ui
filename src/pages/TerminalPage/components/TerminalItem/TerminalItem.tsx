@@ -55,12 +55,12 @@ const TerminalItem: React.FC<Props> = ({ terminal }) => {
   const { name, branch, amountCZK, amountEUR, updated, status } = terminal;
 
   // Returns the current selected currency
-  const getAmaunt = (): number => {
+  const getAmaunt = (): string => {
     switch (activeCurrency) {
       case Currency.czk:
-        return amountCZK;
+        return amountCZK.toLocaleString();
       case Currency.eur:
-        return amountEUR;
+        return amountEUR.toLocaleString();
     }
   };
 
