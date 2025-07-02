@@ -114,6 +114,13 @@
     }
   }
 
+  &__notification {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 16px;
+  }
+
   &__status {
     border-radius: 28px;
     display: flex;

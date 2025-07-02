@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import OnlineIco from '../../../../shared/components/icons/OnlineIco/OnlineIco';
 import UpdateIco from '../../../../shared/components/icons/UpdateIco/UpdateIco';
 import EditIco from '../../../../shared/components/icons/EditIco/EditIco';
+import BellIco from '../../../../shared/components/icons/BellIco/BellIco';
 
 
 type Props = {
@@ -110,12 +111,15 @@ const TerminalItem: React.FC<Props> = ({ terminal }) => {
         </div>
       </div>
       <div className={styles.TerminalItem__right}>
-        <div className={styles.TerminalItem__status}>
-          <p className={classNames({
-            [styles.TerminalItem__status_online] : status,
-            [styles.TerminalItem__status_offline] : !status,
-          })}>{t('online')}</p>
-          <OnlineIco status={status}/>
+        <div className={styles.TerminalItem__notification}>
+          <BellIco />
+          <div className={styles.TerminalItem__status}>
+            <p className={classNames({
+              [styles.TerminalItem__status_online] : status,
+              [styles.TerminalItem__status_offline] : !status,
+            })}>{t('online')}</p>
+            <OnlineIco status={status}/>
+          </div>
         </div>
 
         <p className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_time)}>
