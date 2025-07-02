@@ -85,17 +85,20 @@ const LanguagesSelector = () => {
             })}
             onClick={() => handleSelect(langValue)}
           >
-            <div className={styles.LanguagesSelector__wrapper}>
-              <p className={styles.LanguagesSelector__lang}>{langValue}</p>
+            <p className={styles.LanguagesSelector__lang}>{langValue}</p>
               <img
                 className={styles.LanguagesSelector__flag}
                 src={flagMap[langValue]}
                 alt={langValue}
               />
+            {/* <div className={styles.LanguagesSelector__wrapper}>
+              
+            </div> */}
+            <div className={styles.LanguagesSelector__arrowWrapper}>
+              {activeLang === langValue && (
+                <ArrowDownIco className={styles.LanguagesSelector__arrow} />
+              )}
             </div>
-            {activeLang === langValue && (
-              <ArrowDownIco className={styles.LanguagesSelector__arrow} />
-            )}
           </li>
         ))}
       </ul>

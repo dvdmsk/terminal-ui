@@ -20,7 +20,12 @@
     height: 32px;
     overflow: hidden;
     transition: all .3s;
+    z-index: 1;
 
+    &:hover {
+      cursor: pointer;
+    }
+    
     &_visible {
       height: 80px;
 
@@ -40,12 +45,14 @@
     width: 25px;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: end;
   }
 
   &__language {
-    display: flex;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: 25px 20px 9.39px;
+    position: relative;
+    gap: 8px;
     align-items: center;
     justify-content: center;
     order: 2;
@@ -68,13 +75,14 @@
 
   &__wrapper {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 25px 20px 5.51px);
     gap: 2.87px;
-    width: 48.3px;
+    width: 53px;
     align-items: center;
   }
   &__flag {
     height: 11px;
+    width: 20px;
   }
 
   &__arrow {
