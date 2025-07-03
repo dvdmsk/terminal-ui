@@ -2,6 +2,7 @@
 
 Administrative panel interface for viewing, filtration, sorting and updating the statuses of payment terminals. The project is designed with the scalability, localization and convenient architecture based on **REACT + Redux Toolkit + typescript + vite **.
 
+-[Demo](https://dvdmsk.github.io/terminal-ui/)
 ## 🔧 technology
 
 - **React** (component approach, hooks)
