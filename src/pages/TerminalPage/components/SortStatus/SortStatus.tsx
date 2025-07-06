@@ -30,7 +30,7 @@ const SortStatus:React.FC<Props> = ({ value, onChange }) => {
       <DropDown
         className={styles.SortStatus__order}
         items={{
-          // none: (<div className={styles.SortStatus__status}> </div>),
+          all: (<div className={styles.SortStatus__status}>All</div>),
           asc: (
             <StatusTerminal status={true} />
           ),

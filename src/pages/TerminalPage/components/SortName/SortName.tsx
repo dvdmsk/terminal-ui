@@ -23,7 +23,7 @@ const SortName:React.FC<Props> = ({ value, onChange }) => {
       onChange -transmits the selected data to the parent component*/}
       <DropDown
         className={styles.SortName__order}
-        items={{ asc: <span>A / Z</span>, desc: <span>Z / A</span> }}
+        items={{ all: <span>All</span>, asc: <span>A / Z</span>, desc: <span>Z / A</span> }}
         onSelect={(val) => onChange(val as Order)}
       />
     </div>

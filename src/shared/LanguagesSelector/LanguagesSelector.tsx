@@ -7,6 +7,7 @@ import CZ from '@/assets/img/CZ.png';
 import ENG from '@/assets/img/ENG.png';
 import SK from '@/assets/img/SK.png';
 import ArrowDownIco from '../Icons/ArrowDownIco/ArrowDownIco';
+import { Lang } from '@/types/lang';
 
 const flagMap: Record<string, string> = {
   CZ,
@@ -14,11 +15,7 @@ const flagMap: Record<string, string> = {
   SK,
 };
 
-enum Lang {
-  sk = 'SK',
-  eng = 'ENG',
-  cz = 'CZ',
-}
+
 
 const LanguagesSelector = () => {
   const [activeLang, setActiveLang] = useState<Lang>(Lang.eng);

@@ -1,6 +1,6 @@
 // 1. Filtering, Sorting and Pagination
 
-import { Terminal } from "src/types/terminals";
+import { Terminal } from "@/types/terminals";
 import { RootState } from "./store";
 import { createSelector } from "@reduxjs/toolkit";
 
@@ -22,12 +22,12 @@ export const selectFilteredSortedTerminals = createSelector(
 
     let result = [...terminals]; // We create a copy of the array so you do not mutat the state
 
-    // Status Filter (TRUE/FALSE)
-    if (orderStatus !== null) {
+    // Status Filter 
+    if (orderStatus !== 'all') {
       result = result.filter((t) =>
         orderStatus === 'asc' ? t.status : !t.status
       );
-    }
+    } 
 
     // Search on a branch (Branch)
     if (queryBranch.trim() !== '') {
@@ -38,7 +38,7 @@ export const selectFilteredSortedTerminals = createSelector(
     }
 
      // Sorting by Terminal title (Name)
-    if (orderName) {
+    if (orderName !== 'all') {
       result.sort((a, b) => {
         const nameA = a.name.toLowerCase();
         const nameB = b.name.toLowerCase();
@@ -47,7 +47,7 @@ export const selectFilteredSortedTerminals = createSelector(
         if (nameA > nameB) return orderName === 'asc' ? 1 : -1;
         return 0;
       });
-    }
+    } 
 
     // Deduction of the range of items for the current page
     const start = (currentPage - 1) * itemsPerPage;

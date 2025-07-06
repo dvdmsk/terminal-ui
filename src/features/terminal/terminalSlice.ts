@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Terminal } from '../../types/terminals';
-import { Order } from 'src/types/orders';
+import { Order } from '@/types/orders';
 
 // Store to save sorting parameters, search
 // Define the Interface for Type of State
@@ -25,8 +25,8 @@ interface TerminalState {
 
 const initialState: TerminalState = {
   terminals: [],
-  orderName: null,
-  orderStatus: null,
+  orderName: 'all',
+  orderStatus: 'all',
   queryBranch: '',
   currentPage: 1,
   itemsPerPage: 10,

@@ -19,8 +19,8 @@ import SortStatus from '../SortStatus/SortStatus';
 const FilterBlock = () => {
   const { t } = useTranslation();
   const [branchInput, setBranchInput] = useState('');
-  const [sortName, setSortName] = useState<Order>('asc'); // The starting value of the filtration parameter
-  const [sortStatus, setSortStatus] = useState<Order>('asc');
+  const [sortName, setSortName] = useState<Order>('all'); // The starting value of the filtration parameter
+  const [sortStatus, setSortStatus] = useState<Order>('all');
 
   const dispatch = useAppDispatch();
 

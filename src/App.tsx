@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import TerminalPage from './pages/TerminalPage/TerminalPage';
@@ -8,6 +8,7 @@ import { setTerminals } from './features/terminal/terminalSlice';
 import { terminals } from './api/terminals';
 import { useRoutes } from 'react-router-dom';
 import { routes } from './app/router';
+import { Lang } from './types/lang';
 
 /* 
   The architecture is as follows:
@@ -40,9 +41,14 @@ import { routes } from './app/router';
 
 function App() {
   const dispatch = useAppDispatch();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   dispatch(setTerminals(terminals));
   const element = useRoutes(routes);
+
+  useEffect(() => {
+    const lang = localStorage.getItem('lng')?.toLowerCase() as Lang || Lang.eng.toLowerCase();
+     i18n.changeLanguage(lang);
+  }, []);
 
   return (
     <div className="container">
