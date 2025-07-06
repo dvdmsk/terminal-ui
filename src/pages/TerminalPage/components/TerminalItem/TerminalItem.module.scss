@@ -2,6 +2,7 @@
 
 .TerminalItem {
   display: flex;
+  position: relative;
   justify-content: space-between;
   background-color: $light-gray;
   border-radius: 9px;
@@ -102,7 +103,7 @@
     background-color: $green;
     left: 1px;
     right: 1px;
-    transition: all .3s;  
+    transition: all 0.3s;
     transform: translateX(calc(100% - 1px)) translateY(1px);
 
     &_left {
@@ -128,23 +129,6 @@
     gap: 16px;
     padding: 8px 14px 8px 20px;
     background-color: white;
-    
-    & p {
-      height: 25px;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 100%;
-      display: flex;
-      align-items: center;
-    }
-
-    &_online {
-      color: #32d199;
-    }
-
-    &_offline {
-      color: #b42154;
-    }
   }
 
   &__time {
@@ -180,4 +164,22 @@
       cursor: pointer;
     }
   }
+}
+
+.rotateAnimation {
+  animation: spin 0.6s ease-out infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.notifications {
+  top: 80px;
+  right: 0;
 }

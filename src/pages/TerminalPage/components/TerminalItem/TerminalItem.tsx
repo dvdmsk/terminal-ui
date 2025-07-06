@@ -1,59 +1,31 @@
 import React, { useState } from 'react';
 import styles from './TerminalItem.module.scss';
-import { Terminal } from '../../../../types/terminals';
+import { Terminal } from '@/types/terminals';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import OnlineIco from '../../../../shared/components/icons/OnlineIco/OnlineIco';
-import UpdateIco from '../../../../shared/components/icons/UpdateIco/UpdateIco';
-import EditIco from '../../../../shared/components/icons/EditIco/EditIco';
-import BellIco from '../../../../shared/components/icons/BellIco/BellIco';
 
+import { Link } from 'react-router-dom';
+import EditIco from '@/shared/Icons/EditIco/EditIco';
+import BellIco from '@/shared/Icons/BellIco/BellIco';
+import OnlineIco from '@/shared/Icons/OnlineIco/OnlineIco';
+import UpdateIco from '@/shared/Icons/UpdateIco/UpdateIco';
+import StatusTerminal from '@/shared/StatusTerminal/StatusTerminal';
+import { formatDateTime } from '@/app/formatters';
+import BranchInput from '@/shared/BranchInput/BranchInput';
+import { Currency } from '@/types/currency';
+import Notification from '@/shared/Notification/Notification';
 
 type Props = {
   terminal: Terminal;
 };
 
-enum Currency {
-  czk = 'CZK',
-  eur = 'EUR',
-}
-
-/**
- * Converts the date from the format "YYYYY-MM-DDTHH: MM: SS" into an array ["dd.mm.yyyy", "HH: mm: ss"].
- *
- * @param isoDateTimeString Date and time in ISO 8601 format (for example, "2025-05-27T13: 33: 26").
- * @returns An array containing a date in "dd.mm.yyyy" and time in "HH: MM: SS" format,
- * or [null, null] if the input line is invalid.
- */
-
-function formatDateTime(isoDateTimeString: string): [string | null, string | null] {
-  const date = new Date(isoDateTimeString);
-
-  if (isNaN(date.getTime())) {
-    console.error(`Invalid date string provided: ${isoDateTimeString}`);
-    return [null, null];
-  }
-
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0'); 
-  const year = date.getFullYear();
-
-  const hours = String(date.getHours()).padStart(2, '0');
-  const minutes = String(date.getMinutes()).padStart(2, '0');
-  const seconds = String(date.getSeconds()).padStart(2, '0');
-
-  const formattedDate = `${day}.${month}.${year}`;
-  const formattedTime = `${hours}:${minutes}:${seconds}`;
-
-  return [formattedDate, formattedTime];
-}
-
-//Component -a terminal card with information about 
+//Component -a terminal card with information about
 // name, branch, amount of money in account and others
 const TerminalItem: React.FC<Props> = ({ terminal }) => {
   const [activeCurrency, setActiveCurrency] = useState<Currency>(Currency.eur);
   const { t } = useTranslation();
   const { name, branch, amountCZK, amountEUR, updated, status } = terminal;
+  const [isUpdating, setIsUpdating] = useState(false);
 
   // Returns the current selected currency
   const getAmaunt = (): string => {
@@ -70,12 +42,29 @@ const TerminalItem: React.FC<Props> = ({ terminal }) => {
   // [1] - time in format: 09:00:10
   const date = formatDateTime(updated);
 
-  const handleCurrencyChange = (cur: Currency) => {
+  const handleCurrencyChange = (
+    e: React.MouseEvent<HTMLParagraphElement, MouseEvent>,
+    cur: Currency,
+  ) => {
+    e.preventDefault();
     setActiveCurrency(cur);
   };
 
+  const handleUpdate = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    setIsUpdating(true);
+
+    setTimeout(() => {
+      setIsUpdating(false);
+    }, 600);
+  };
+
+  const handleNotification = (e:  React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.preventDefault();
+  };
+
   return (
-    <div className={styles.TerminalItem}>
+    <Link to={`/terminal/${terminal.id}`} className={styles.TerminalItem}>
       <div className={styles.TerminalItem__left}>
         <p className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_terminal)}>
           {t('terminal')}
@@ -84,16 +73,17 @@ const TerminalItem: React.FC<Props> = ({ terminal }) => {
         <p className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_branch)}>
           {t('branch')}
         </p>
-        <p className={classNames(styles.TerminalItem__text, styles.TerminalItem__text_branch)}>{branch} <EditIco /></p>
+
+        <BranchInput name={branch} />
 
         <div className={styles.TerminalItem__blockAmaunt}>
           <p className={styles.TerminalItem__amaunt}>{getAmaunt()}</p>
-          <div className={styles.TerminalItem__currency}>
+          <div className={styles.TerminalItem__currency} onClick={(e) => e.preventDefault()}>
             <p
               className={classNames(styles.TerminalItem__currencyName, {
                 [styles.TerminalItem__currencyName_active]: activeCurrency === Currency.czk,
               })}
-              onClick={() => handleCurrencyChange(Currency.czk)}
+              onClick={(e) => handleCurrencyChange(e, Currency.czk)}
             >
               {Currency.czk}
             </p>
@@ -101,25 +91,24 @@ const TerminalItem: React.FC<Props> = ({ terminal }) => {
               className={classNames(styles.TerminalItem__currencyName, {
                 [styles.TerminalItem__currencyName_active]: activeCurrency === Currency.eur,
               })}
-              onClick={() => handleCurrencyChange(Currency.eur)}
+              onClick={(e) => handleCurrencyChange(e, Currency.eur)}
             >
               {Currency.eur}
             </p>
 
-            <div className={classNames(styles.TerminalItem__currencyBtn, {[styles.TerminalItem__currencyBtn_left]: activeCurrency === Currency.czk})}></div>
+            <div
+              className={classNames(styles.TerminalItem__currencyBtn, {
+                [styles.TerminalItem__currencyBtn_left]: activeCurrency === Currency.czk,
+              })}
+            ></div>
           </div>
         </div>
       </div>
       <div className={styles.TerminalItem__right}>
         <div className={styles.TerminalItem__notification}>
-          <BellIco />
-          <div className={styles.TerminalItem__status}>
-            <p className={classNames({
-              [styles.TerminalItem__status_online] : status,
-              [styles.TerminalItem__status_offline] : !status,
-            })}>{t('online')}</p>
-            <OnlineIco status={status}/>
-          </div>
+          <Notification classContent={classNames(styles.notifications)} notifications={terminal.notification}/>
+
+          <StatusTerminal status={status} className={styles.TerminalItem__status} />
         </div>
 
         <p className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_time)}>
@@ -131,13 +120,13 @@ const TerminalItem: React.FC<Props> = ({ terminal }) => {
           <p>{date[1]}</p>
         </div>
 
-        <button className={styles.TerminalItem__update}>
-          <UpdateIco />
+        <button className={styles.TerminalItem__update} onClick={handleUpdate}>
+          <UpdateIco className={isUpdating ? styles.rotateAnimation : ''} />
 
           <p>{t('update')}</p>
         </button>
       </div>
-    </div>
+    </Link>
   );
 };
 

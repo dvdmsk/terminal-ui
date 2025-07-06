@@ -1,0 +1,22 @@
+@import '@utils/global';
+
+.SortStatus {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    color: $dark-gray;
+    margin-bottom: 4px;
+  }
+  &__order {
+    height: 32px;
+    width: 184px;
+  }
+
+  &__status {
+    
+  }
+}

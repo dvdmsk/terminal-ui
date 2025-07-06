@@ -1,0 +1,50 @@
+@import '@utils/global';
+
+.TobBarDetails {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 21px;
+
+  &__content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+
+  &__controls {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0;
+  }
+
+  &__branch {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    display: flex;
+
+
+    & svg {
+      height: 12px;
+      width: 12px;
+    }
+  }
+}
+
+.notification {
+  position: relative;
+
+  &__content {
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    width: 487px;
+  }
+}

@@ -1,0 +1,44 @@
+@import '@utils/global';
+
+.Notification {
+  display: flex;
+
+  &__bell {
+    position: relative;
+  }
+
+  &__content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    max-width: 487px;
+    border-radius: 5px;
+    z-index: 3;
+    padding: 16px 30px 16px 16px;
+    transition: max-height 0.3s ease;
+    overflow-y: hidden;
+
+    &_active {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+
+  &__message {
+    border-radius: 5px;
+    background-color: $light-gray;
+    padding: 16px 12px;
+  }
+}
+
+.circle {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  background-color: $red;
+  border-radius: 50%;
+
+  top: 4px;
+  right: 6px;
+}

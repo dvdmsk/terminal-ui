@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import styles from './FilterBlock.module.scss';
-import FilterIco from './../../../../shared/components/icons/FilterIco/FilterIco';
-import SortName from './components/SortName/SortName';
-import { SearchBar } from './components/SearchBar/SearchBar';
-import SortStatus from './components/SortStatus/SortStatus';
+
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from './../../../../app/hooks';
-import { setQueryBranch, setOrderName, setOrderStatus, setCurrentPage } from './../../../../features/terminal/terminalSlice';
-import { Order } from 'src/types/orders';
+import { useAppDispatch } from '@/app/hooks';
+import { setQueryBranch, setOrderName, setOrderStatus, setCurrentPage } from '@/features/terminal/terminalSlice';
+import { Order } from '@/types/orders';
+import FilterIco from '@/shared/Icons/FilterIco/FilterIco';
+import SortName from '../SortName/SortName';
+import { SearchBar } from '../SearchBar';
+import SortStatus from '../SortStatus/SortStatus';
+
 
 // The Main Component with Search and Sorting, 
 // uses Redux to Save Sorting Parameters

@@ -7,6 +7,9 @@ html {
 }
 body {
   font-family: 'Open Sans';
+  color: $text-main-dark;
+  margin: 0;
+  padding: 0;
 }
 
 * {
@@ -23,9 +26,17 @@ ul, ol {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: $text-main-dark;
+}
+
+table, tr, td, th, tbody, thead {
+  padding: 0;
+}
+
 .container {
   margin: auto;
   max-width: 1440px;
-  padding-inline: 60px;
   width: 100%;
 }

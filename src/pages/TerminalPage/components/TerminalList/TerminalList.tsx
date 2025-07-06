@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './TerminalList.module.scss';
-import { useAppSelector } from '../../../../app/hooks';
+import { useAppSelector } from '@/app/hooks';
 import TerminalItem from '../TerminalItem/TerminalItem';
-import { RootState } from 'src/app/store';
-import { Terminal } from 'src/types/terminals';
+import { RootState } from '@/app/store';
+import { Terminal } from '@/types/terminals';
 import { useSelector } from 'react-redux';
-import { selectFilteredSortedTerminals, selectTotalPages } from './../../../../app/pagination';
+import { selectFilteredSortedTerminals, selectTotalPages } from '@/app/pagination';
 
 
 

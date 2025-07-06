@@ -1,0 +1,134 @@
+@import '@utils/global';
+
+.InfoPanelDetails {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background-color: $dark-blue;
+  color: white;
+  height: 81px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__update {
+    height: 49px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: $text-main-dark;
+    border-radius: 8px;
+    border: none;
+    background-color: $light-green;
+    padding: 12px 16px;
+  }
+
+  &__ico {
+    & path {
+      fill: #000;
+    }
+  }
+
+  &__blockTime {
+    margin-left: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__timeTitle {
+    color: $dark-gray;
+    font-size: 12px;
+    line-height: 100%;
+  }
+
+  &__time {
+    margin-top: 4px;
+    display: flex;
+    gap: 8px;
+
+    & p {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 100%;
+    }
+  }
+  &__status {
+    margin-left: 32px;
+    border-radius: 8px;
+    background-color: $btn-gray;
+  }
+
+  &__blockAmaunt {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__amount {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+  }
+
+  &__currency {
+    display: flex;
+    width: 107px;
+    justify-content: space-between;
+    position: relative;
+    border: 1px solid white;
+    border-radius: 16px;
+    padding: 4px 14px 5px 14px;
+    height: 28px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__currencyName {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+
+    &_active {
+      color: $dark-blue;
+    }
+  }
+  &__currencyBtn {
+    position: absolute;
+    top: 0px;
+    right: 1px;
+    left: 1px;
+    bottom: 1px;
+    width: 52px;
+    background-color: white;
+    height: 24px;
+    border-radius: 14px;
+    transition: all 0.3s;
+    transform: translateX(calc(100% - 1px)) translateY(1px);
+    display: flex;
+    &_left {
+      transform: translateX(0) translateY(1px);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

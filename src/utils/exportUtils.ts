@@ -7,7 +7,7 @@ import { Terminal } from '../types/terminals';
  * @param data Array of objects for export.
  * @param fileName File name without extension.
  */
-export const exportToXLSX = (data: Terminal[], fileName: string = 'terminals_data') => {
+export const exportTerminalsToXLSX = (data: Terminal[], fileName: string = 'terminals_data') => {
     if (!data || data.length === 0) {
         return;
     }

@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import TerminalPage from './pages/TerminalPage/TerminalPage';
-import LanguagesSelector from './pages/TerminalPage/components/TopBar/components/LanguagesSelector/LanguagesSelector';
-import ArrowDownIco from './shared/components/icons/ArrowDownIco/ArrowDownIco';
 import './utils/_global.scss';
 import { useTranslation } from 'react-i18next';
 import { setTerminals } from './features/terminal/terminalSlice';
 import { terminals } from './api/terminals';
+import { useRoutes } from 'react-router-dom';
+import { routes } from './app/router';
 
 /* 
   The architecture is as follows:
@@ -38,17 +38,15 @@ import { terminals } from './api/terminals';
   -Terminalitem -Displaying one terminal with the support of switching currency
 */
 
-
 function App() {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
   dispatch(setTerminals(terminals));
+  const element = useRoutes(routes);
 
   return (
-    <div className="App">
-      <div className="container">
-        <TerminalPage />
-      </div>
+    <div className="container">
+      <Suspense fallback={<div>Loading...</div>}>{element}</Suspense>
     </div>
   );
 }

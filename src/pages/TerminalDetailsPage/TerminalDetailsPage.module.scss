@@ -1,0 +1,28 @@
+@import '@utils/global';
+
+.TerminalDetailsPage {
+  display: flex;
+  margin-top: 80px;
+
+  &__main {
+    width: 100%;
+    margin-left: 23px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    margin-bottom: 24px;
+  }
+
+  &__state {
+    display: grid;
+    gap: 24px 14px;
+    
+    @include on-desktop {
+      grid-template-columns: repeat(2, 1fr);
+      
+    }
+  }
+}

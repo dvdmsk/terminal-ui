@@ -1,0 +1,50 @@
+@import '@utils/global';
+
+.TablePayment {
+  width: 100%;
+  overflow: scroll;
+  margin-bottom: 24px;
+  border-collapse: collapse;
+
+  & thead td {
+    height: 52px;
+    padding: 0;
+    padding-bottom: 12px;
+    font-size: 12px;
+    line-height: 100%;
+    color: $text-main-dark;
+    padding-inline: 32px;
+    
+    &:first-of-type {
+      padding-inline: 24px;
+    }
+  }
+
+  & tbody tr {
+    font-size: 16px;
+
+    &:nth-of-type(2n - 1) {
+      background-color: $btn-gray;
+    }
+
+    & td {
+      height: 30px;
+      padding-inline: 32px;
+    }
+    & td:first-of-type {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    & td:last-of-type {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+
+  &__denomination {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+}
