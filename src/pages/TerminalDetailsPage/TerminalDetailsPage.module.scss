@@ -18,11 +18,10 @@
 
   &__state {
     display: grid;
-    gap: 24px 14px;
     
     @include on-desktop {
       grid-template-columns: repeat(2, 1fr);
-      
+      gap: 14px;
     }
   }
 }

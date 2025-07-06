@@ -33,12 +33,18 @@
     border: none;
     background-color: $light-green;
     padding: 12px 16px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__ico {
     & path {
       fill: #000;
     }
+
+    
   }
 
   &__blockTime {
@@ -69,6 +75,11 @@
     margin-left: 32px;
     border-radius: 8px;
     background-color: $btn-gray;
+    height: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__blockAmaunt {
@@ -130,5 +141,18 @@
     &:hover {
       cursor: pointer;
     }
+  }
+}
+
+.rotateAnimation {
+  animation: spin 0.6s ease-out infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

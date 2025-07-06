@@ -10,6 +10,7 @@ import classNames from 'classnames';
 
 const InfoPanelDetails = () => {
   const details = terminalInfo;
+  const [isUpdating, setIsUpdating] = useState(false);
   const { t } = useTranslation();
   const data = formatDateTime(details.updated);
   const [activeCurrency, setActiveCurrency] = useState<Currency>(Currency.eur);
@@ -32,11 +33,24 @@ const InfoPanelDetails = () => {
     setActiveCurrency(cur);
   };
 
+  const handleUpdate = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    setIsUpdating(true);
+
+    setTimeout(() => {
+      setIsUpdating(false);
+    }, 600);
+  };
+
   return (
     <div className={styles.InfoPanelDetails}>
       <div className={styles.InfoPanelDetails__left}>
-        <button className={styles.InfoPanelDetails__update}>
-          <UpdateIco className={styles.InfoPanelDetails__ico}/>
+        <button className={styles.InfoPanelDetails__update} onClick={handleUpdate}>
+          <UpdateIco
+            className={classNames(styles.InfoPanelDetails__ico, {
+              [styles.rotateAnimation]: isUpdating,
+            })}
+          />
           {t('update')}
         </button>
         <div className={styles.InfoPanelDetails__blockTime}>
