@@ -1,14 +1,16 @@
 @import '@utils/global';
 
 .header {
-    margin-top: 57px;
+  margin-top: 10px;
+    // margin-top: 57px;
 }
 
 .TerminalPage {
   padding-inline: 60px;
   
   &__hr {
-    margin-top: 97px;
+    margin-top: 15px;
+    // margin-top: 97px;
     height: 0px;
     border: 2px solid $dark-gray;
     border-radius: 2px;
