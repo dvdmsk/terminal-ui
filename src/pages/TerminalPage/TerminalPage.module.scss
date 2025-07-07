@@ -2,12 +2,12 @@
 
 .header {
   margin-top: 10px;
-    // margin-top: 57px;
+  // margin-top: 57px;
 }
 
 .TerminalPage {
   padding-inline: 60px;
-  
+
   &__hr {
     margin-top: 15px;
     // margin-top: 97px;
@@ -63,6 +63,7 @@
     &:hover,
     &:active {
       background-color: $light-green;
+      cursor: pointer;
     }
   }
 }
