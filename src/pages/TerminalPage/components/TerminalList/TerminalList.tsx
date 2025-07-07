@@ -17,7 +17,7 @@ const TerminalList = () => {
   // This selector already contains the logging of filtration by search
   // and sorting by name or status.
   const terminals = useSelector(selectFilteredSortedTerminals);
-  
+  // console.log(terminals);
   return (
     <div className={styles.TerminalList}>
       {terminals.map((terminal, index) => (
