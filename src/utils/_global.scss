@@ -39,4 +39,6 @@ table, tr, td, th, tbody, thead {
   margin: auto;
   max-width: 1440px;
   width: 100%;
+  transform-origin: top;
+  transform: scale(0.7);
 }
