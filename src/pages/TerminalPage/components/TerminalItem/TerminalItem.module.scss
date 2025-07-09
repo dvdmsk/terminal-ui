@@ -7,10 +7,11 @@
   background-color: $light-gray;
   border-radius: 9px;
   padding: 16px 18px 14px 16px;
-  min-height: 172px;
+  max-height: 172px;
 
   @include on-l-desktop {
     padding: 20px 20px 23px;
+    max-height: 203px;
   }
 
   &__right {
@@ -29,6 +30,7 @@
     @include on-l-desktop {
       font-size: 12px;
     }
+    
     &_branch {
       margin-top: 12px;
 

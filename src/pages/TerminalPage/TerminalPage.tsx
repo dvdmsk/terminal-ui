@@ -34,6 +34,7 @@ const TerminalPage = () => {
   };
 
   const listRef = useRef<HTMLDivElement | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const paginationRefs = useRef<HTMLDivElement | null>(null);
 
@@ -41,9 +42,10 @@ const TerminalPage = () => {
     const handleResize = () => {
       const list = listRef.current;
       const pagination = paginationRefs.current;
+      const wrapper = wrapperRef.current;
       const windowHeight = window.innerHeight; 
 
-      if (!list || !pagination || itemRefs.current.length === 0) {
+      if (!list || !pagination || itemRefs.current.length === 0 || !wrapper) {
         return;
       }
 
@@ -61,7 +63,9 @@ const TerminalPage = () => {
       const availableHeight = windowHeight - pagination.offsetHeight - scrollTopOffset;
       const maxCountItem = Math.floor(availableHeight / itemAndGapHeight);
 
-      list.style.maxHeight = `${Math.max(0, maxCountItem * itemAndGapHeight - rowGap)}px`;
+      // list.style.height = `${Math.max(0, maxCountItem * itemAndGapHeight - rowGap)}px`;
+      wrapper.style.maxHeight = `${(availableHeight)}px`;
+      list.style.maxHeight = `${(availableHeight)}px`;
     };
 
     handleResize();
@@ -85,7 +89,9 @@ const TerminalPage = () => {
         <FilterBlock />
 
         {/* A component of the terminal list that displays filtered and sorted terminals. */}
-        <TerminalList terminals={terminals} ref={listRef} itemRefs={itemRefs} />
+        <div className={styles.TermnialPage__list} ref={wrapperRef}>
+          <TerminalList terminals={terminals} ref={listRef} itemRefs={itemRefs} />
+        </div>
 
         <div ref={paginationRefs}>
           {/* Horizontal line-separator. */}

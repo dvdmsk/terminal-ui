@@ -11,15 +11,12 @@
 .TerminalPage {
   &__hr {
     padding-top: 0px;
-    // margin-top: 97px;
     height: 0px;
     border: none;
     border-bottom: 2px solid $dark-gray;
     border-radius: 2px;
 
-    @include on-l-desktop {
-      padding-top: 15px;
-    }
+
   }
 
   &__pagination {

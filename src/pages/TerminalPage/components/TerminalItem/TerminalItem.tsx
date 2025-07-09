@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useRef, useState } from 'react';
 import styles from './TerminalItem.module.scss';
 import { Terminal } from '@/types/terminals';
 import classNames from 'classnames';
@@ -59,15 +59,19 @@ const TerminalItem = forwardRef<HTMLDivElement, Props>(({ terminal }, ref) => {
     }, 600);
   };
 
-  const handleNotification = (e:  React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleNotification = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.preventDefault();
   };
 
+  const notificationAnchorRef = useRef<HTMLDivElement | null>(null);
+
   return (
     <div ref={ref}>
-      <Link to={`/terminal/${terminal.id}`} className={styles.TerminalItem} >
+      <Link to={`/terminal/${terminal.id}`} className={styles.TerminalItem}>
         <div className={styles.TerminalItem__left}>
-          <p className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_terminal)}>
+          <p
+            className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_terminal)}
+          >
             {t('terminal')}
           </p>
           <p className={styles.TerminalItem__text}>{name}</p>
@@ -103,8 +107,12 @@ const TerminalItem = forwardRef<HTMLDivElement, Props>(({ terminal }, ref) => {
           </div>
         </div>
         <div className={styles.TerminalItem__right}>
-          <div className={styles.TerminalItem__notification}>
-            <Notification classContent={classNames(styles.notifications)} notifications={terminal.notification}/>
+          <div className={styles.TerminalItem__notification} ref={notificationAnchorRef}>
+            <Notification
+              classContent={classNames(styles.notifications)}
+              notifications={terminal.notification}
+              anchorRef={notificationAnchorRef}
+            />
             <StatusTerminal status={status} className={styles.TerminalItem__status} />
           </div>
           <p className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_time)}>

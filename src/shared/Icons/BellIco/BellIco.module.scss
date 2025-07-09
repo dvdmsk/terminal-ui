@@ -4,4 +4,16 @@
   display: flex;
   height: 17px;
   width: 16px;
+
+  @include on-l-desktop {
+    display: none;
+  }
+
+  &_large {
+    display: none;
+
+    @include on-l-desktop {
+      display: block;
+    }
+  }
 }
