@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styles from './SearchBar.module.scss';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from './../../../../../../app/hooks';
-import { setQueryBranch } from './../../../../../../features/terminal/terminalSlice';
+import { useAppDispatch } from '@/app/hooks';
+import { setQueryBranch } from '@/features/terminal/terminalSlice';
 
 /* Component to search for a branch
 */

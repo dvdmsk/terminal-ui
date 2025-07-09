@@ -3,27 +3,44 @@
 .SortName {
   display: flex;
   flex-direction: column;
-  
+  justify-content: center;
 
   &__title {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 6px;
     line-height: 100%;
     color: $dark-gray;
     margin-bottom: 4px;
+
+    @include on-l-desktop {
+      font-size: 12px;
+    }
   }
   
   &__order {
-    width: 255px;
-    height: 32px;
+    width: 120px;
+    height: 22px;
+    padding: 4px 8px 4px 12px;
     display: flex;
     justify-content: space-between;
 
+    @include on-l-desktop {
+      height: 32px;
+      padding: 8px 12px;
+      width: 255px;
+    }
+
     & span {
       font-weight: 400;
-      font-size: 18px;
+      font-size: 10px;
       line-height: 100%;
       color: $text-main-dark;
+
+      @include on-l-desktop {
+        font-size: 18px;
+      }
     }
+
+    
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import styles from './TerminalItem.module.scss';
 import { Terminal } from '@/types/terminals';
 import classNames from 'classnames';
@@ -21,7 +21,7 @@ type Props = {
 
 //Component -a terminal card with information about
 // name, branch, amount of money in account and others
-const TerminalItem: React.FC<Props> = ({ terminal }) => {
+const TerminalItem = forwardRef<HTMLDivElement, Props>(({ terminal }, ref) => {
   const [activeCurrency, setActiveCurrency] = useState<Currency>(Currency.eur);
   const { t } = useTranslation();
   const { name, branch, amountCZK, amountEUR, updated, status } = terminal;
@@ -64,70 +64,64 @@ const TerminalItem: React.FC<Props> = ({ terminal }) => {
   };
 
   return (
-    <Link to={`/terminal/${terminal.id}`} className={styles.TerminalItem}>
-      <div className={styles.TerminalItem__left}>
-        <p className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_terminal)}>
-          {t('terminal')}
-        </p>
-        <p className={styles.TerminalItem__text}>{name}</p>
-        <p className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_branch)}>
-          {t('branch')}
-        </p>
-
-        <BranchInput name={branch} />
-
-        <div className={styles.TerminalItem__blockAmaunt}>
-          <p className={styles.TerminalItem__amaunt}>{getAmaunt()}</p>
-          <div className={styles.TerminalItem__currency} onClick={(e) => e.preventDefault()}>
-            <p
-              className={classNames(styles.TerminalItem__currencyName, {
-                [styles.TerminalItem__currencyName_active]: activeCurrency === Currency.czk,
-              })}
-              onClick={(e) => handleCurrencyChange(e, Currency.czk)}
-            >
-              {Currency.czk}
-            </p>
-            <p
-              className={classNames(styles.TerminalItem__currencyName, {
-                [styles.TerminalItem__currencyName_active]: activeCurrency === Currency.eur,
-              })}
-              onClick={(e) => handleCurrencyChange(e, Currency.eur)}
-            >
-              {Currency.eur}
-            </p>
-
-            <div
-              className={classNames(styles.TerminalItem__currencyBtn, {
-                [styles.TerminalItem__currencyBtn_left]: activeCurrency === Currency.czk,
-              })}
-            ></div>
+    <div ref={ref}>
+      <Link to={`/terminal/${terminal.id}`} className={styles.TerminalItem} >
+        <div className={styles.TerminalItem__left}>
+          <p className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_terminal)}>
+            {t('terminal')}
+          </p>
+          <p className={styles.TerminalItem__text}>{name}</p>
+          <p className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_branch)}>
+            {t('branch')}
+          </p>
+          <BranchInput name={branch} />
+          <div className={styles.TerminalItem__blockAmaunt}>
+            <p className={styles.TerminalItem__amaunt}>{getAmaunt()}</p>
+            <div className={styles.TerminalItem__currency} onClick={(e) => e.preventDefault()}>
+              <p
+                className={classNames(styles.TerminalItem__currencyName, {
+                  [styles.TerminalItem__currencyName_active]: activeCurrency === Currency.czk,
+                })}
+                onClick={(e) => handleCurrencyChange(e, Currency.czk)}
+              >
+                {Currency.czk}
+              </p>
+              <p
+                className={classNames(styles.TerminalItem__currencyName, {
+                  [styles.TerminalItem__currencyName_active]: activeCurrency === Currency.eur,
+                })}
+                onClick={(e) => handleCurrencyChange(e, Currency.eur)}
+              >
+                {Currency.eur}
+              </p>
+              <div
+                className={classNames(styles.TerminalItem__currencyBtn, {
+                  [styles.TerminalItem__currencyBtn_left]: activeCurrency === Currency.czk,
+                })}
+              ></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={styles.TerminalItem__right}>
-        <div className={styles.TerminalItem__notification}>
-          <Notification classContent={classNames(styles.notifications)} notifications={terminal.notification}/>
-
-          <StatusTerminal status={status} className={styles.TerminalItem__status} />
+        <div className={styles.TerminalItem__right}>
+          <div className={styles.TerminalItem__notification}>
+            <Notification classContent={classNames(styles.notifications)} notifications={terminal.notification}/>
+            <StatusTerminal status={status} className={styles.TerminalItem__status} />
+          </div>
+          <p className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_time)}>
+            {t('time')}
+          </p>
+          <div className={styles.TerminalItem__time}>
+            <p>{date[0]}</p>
+            <p>{date[1]}</p>
+          </div>
+          <button className={styles.TerminalItem__update} onClick={handleUpdate}>
+            <UpdateIco className={isUpdating ? styles.rotateAnimation : ''} />
+            <p>{t('update')}</p>
+          </button>
         </div>
-
-        <p className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_time)}>
-          {t('time')}
-        </p>
-
-        <div className={styles.TerminalItem__time}>
-          <p>{date[0]}</p>
-          <p>{date[1]}</p>
-        </div>
-
-        <button className={styles.TerminalItem__update} onClick={handleUpdate}>
-          <UpdateIco className={isUpdating ? styles.rotateAnimation : ''} />
-
-          <p>{t('update')}</p>
-        </button>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
-};
+});
 
 export default TerminalItem;

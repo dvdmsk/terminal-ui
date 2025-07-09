@@ -3,13 +3,13 @@
 .TerminalList {
   display: grid;
   gap: 12px 4px;
-  padding-top: 24px;
+  margin-top: 24px;
   
+  max-height: 681px;
+  overflow: auto;
   @include on-desktop {
     grid-template-columns: repeat(2, 1fr);
 
-    max-height: 681px;
-    
-    overflow: auto;
+    max-height: 100%;
   }
 }

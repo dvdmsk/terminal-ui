@@ -30,6 +30,12 @@
   }
 }
 
+@mixin on-l-desktop {
+  @media (min-width: $large-desktop-min-width) {
+    @content;
+  }
+}
+
 @mixin page-grid {
   --columns: 4;
 

@@ -5,7 +5,7 @@
 html {
   font-family: 'Open Sans';
   transform-origin: top;
-  transform: scale(0.8);
+
 }
 body {
   font-family: 'Open Sans';
@@ -39,7 +39,12 @@ table, tr, td, th, tbody, thead {
 
 .container {
   margin: auto;
-  max-width: 1440px;
+  max-width: 880px;
   width: 100%;
   
+
+  @include on-l-desktop {
+    max-width: 1320px;
+  }
+
 }

@@ -2,33 +2,50 @@
 
 .FilterBlock {
   display: flex;
-  padding: 8px 21px 9px 20px;
+  padding: 7px 22px 6px 15px;
   align-items: center;
   background-color: $gray;
   border-radius: 4px;
   margin-top: 12px;
+  height: 49px;
+
+  @include on-l-desktop {
+    height: 69px;
+    padding: 8px 21px 9px 20px;
+  }
 
   &__controls {
-    margin-left: 20px;
+    margin-left: 16px;
     display: flex;
     gap: 12px;
+
+    @include on-l-desktop {
+      margin-left: 20px;
+    }
   }
 
   &__apply {
     margin-left: auto;
     display: flex;
-    justify-content: end;
+    justify-content: center;
+    align-items: center;
     color: white;
-    width: 169;
-    height: 41;
+    width: 93px;
+    height: 24px;
     background-color: $green;
     border-radius: 8px;
-    padding: 8px 60px;
+    padding-block: 4px;
     border: none;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 12px;
     line-height: 100%;
-    
+
+    @include on-l-desktop {
+      height: 41px;
+      width: 169px;
+      padding-block: 8px;
+      font-size: 18px;
+    }
     &:hover {
       cursor: pointer;
     }

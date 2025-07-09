@@ -1,0 +1,8 @@
+@import '@utils/global';
+
+.FilterIco {
+  height: 14px;
+  @include on-l-desktop {
+    height: 24px;
+  }
+}

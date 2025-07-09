@@ -1,0 +1,9 @@
+@import '@utils/global';
+
+.EditIco {
+  height: 14px;
+
+  @include on-l-desktop {
+    height: 18px;
+  }
+}

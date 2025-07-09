@@ -1,3 +1,5 @@
+@import '@utils/global';
+
 .TopBar {
   width: 100%;
   display: flex;
@@ -7,8 +9,10 @@
   &__container {
     display: flex;
     align-items: center;
-    gap: 24.61px;
-  }
+    gap: 21.39px;
 
- 
+    @include on-l-desktop {
+      gap: 24.61px;
+    }
+  }
 }

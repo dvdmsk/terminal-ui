@@ -9,7 +9,7 @@ type Props = {
 
 const OnlineIco: React.FC<Props> = ({ className = '', status = true }) => {
   return (
-    <svg className={classNames(className)} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <svg className={classNames(className, styles.OnlineIco)} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
       <circle cx="10.0001" cy="10" r="3.78571" stroke="#32D199" className={classNames({
         [styles.OnlineIco__online] : status,
         [styles.OnlineIco__offline] : !status

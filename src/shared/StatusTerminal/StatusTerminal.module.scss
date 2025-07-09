@@ -2,25 +2,33 @@
 
 .StatusTerminal {
   display: flex;
-    align-items: center;
-    gap: 16px;
+  align-items: center;
+  gap: 16px;
+  padding: 3px 7px 3px 12px;
+  background-color: white;
+
+  @include on-l-desktop {
     padding: 4px 10px 3px 20px;
-    background-color: white;
+  }
+  & p {
+    height: 16px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
 
-    & p {
+    @include on-l-desktop {
       height: 25px;
-      font-weight: 600;
       font-size: 18px;
-      line-height: 100%;
-      display: flex;
-      align-items: center;
     }
+  }
 
-    &_online {
-      color: #32d199;
-    }
+  &_online {
+    color: #32d199;
+  }
 
-    &_offline {
-      color: #b42154;
-    }
+  &_offline {
+    color: #b42154;
+  }
 }

@@ -3,21 +3,35 @@
 .ExportButton {
   background-color: $light-green;
   border-radius: 8px;
-  padding: 12px 16px;
+  padding: 8px 12px;
   border: none;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 14px;
+
   line-height: 100%;
   display: flex;
   gap: 12px;
   align-items: center;
-  height: 49px;
+  height: 35px;
 
+  & svg {
+    // width: 12px;
+
+    @include on-l-desktop {
+      width: 16px;
+    }
+  }
   &:active {
     outline: none;
   }
 
   &:hover {
     cursor: pointer;
+  }
+
+  @include on-l-desktop {
+    padding: 12px 16px;
+    font-size: 18px;
+    height: 49px;
   }
 }

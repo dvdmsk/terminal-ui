@@ -3,20 +3,32 @@
 .SortStatus {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   &__title {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 6px;
     line-height: 100%;
     color: $dark-gray;
     margin-bottom: 4px;
+
+    @include on-l-desktop {
+      font-size: 12px;
+    }
   }
   &__order {
-    height: 32px;
-    width: 184px;
+    height: 22px;
+    width: 120px;
+    padding: 3px 7px 3px 12px;
+
+    @include on-l-desktop {
+      height: 32px;
+      width: 184px;
+      padding: 4px 10px 3px 20px;
+    }
   }
 
   &__status {
-    
+    font-size: 12px;
   }
 }

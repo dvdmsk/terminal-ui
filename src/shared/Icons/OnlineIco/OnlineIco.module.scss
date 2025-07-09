@@ -1,4 +1,13 @@
+@import '@utils/global';
+
 .OnlineIco {
+  width: 10px;
+  height: 10px;
+
+  @include on-l-desktop {
+    width: 20px;
+    height: 20px;
+  }
   &__online {
     stroke: #32D199;
   } 
