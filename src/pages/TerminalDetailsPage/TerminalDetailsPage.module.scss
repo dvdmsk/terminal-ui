@@ -6,14 +6,27 @@
 
   &__main {
     width: 100%;
-    margin-left: 23px;
+    margin-left: 12px;
+
+    @include on-l-desktop {
+      margin-left: 23px;
+    }
   }
 
   &__title {
+    height: 25px;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+
+    @include on-l-desktop {
+      height: 33px;
+      margin-bottom: 24px;
+      font-size: 24px;
+      }
   }
 
   &__state {

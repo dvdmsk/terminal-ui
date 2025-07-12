@@ -7,6 +7,7 @@ import { formatAmountDecimal, formatAmountInteger } from '@/app/formatters';
 import CoinIco from '@/shared/Icons/CoinIco/CoinIco';
 import MoneyIco from '@/shared/Icons/MoneyIco/MoneyIco';
 import ArrowThinIco from '@/shared/Icons/ArrowThinIco/ArrowThinIco';
+import EditIco from '@/shared/Icons/EditIco/EditIco';
 
 type Props = {
   data: TerminalInfo['coinRecycler'];
@@ -67,9 +68,24 @@ const TablePaymentBoxes: React.FC<Props> = ({ data, className = '' }) => {
                 </td>
                 <td>{formatAmountInteger(td.totalCount)}</td>
                 <td>{formatAmountInteger(td.totalAmount)}</td>
-                <td>{formatAmountInteger(td.warningCount)}</td>
-                <td>{formatAmountInteger(td.criticalCount)}</td>
-                <td>{formatAmountInteger(td.maxCount)}</td>
+                <td>
+                  <div className={styles.TablePaymentBoxes__edit}>
+                    {formatAmountInteger(td.warningCount)}
+                    <EditIco className={styles.TablePaymentBoxes__edit_ico} />
+                  </div>
+                </td>
+                <td>
+                  <div className={styles.TablePaymentBoxes__edit}>
+                    {formatAmountInteger(td.criticalCount)}
+                    <EditIco className={styles.TablePaymentBoxes__edit_ico} />
+                  </div>
+                </td>
+                <td>
+                  <div className={styles.TablePaymentBoxes__edit}>
+                    {formatAmountInteger(td.maxCount)}
+                    <EditIco className={styles.TablePaymentBoxes__edit_ico} />
+                  </div>
+                </td>
               </tr>
             ))}
             <tr>

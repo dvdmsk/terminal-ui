@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './Notification.module.scss';
 import classNames from 'classnames';
-import NotificationPortal from '../NotificationPortal';
+import NotificationPortal from '../Portals/NotificationPortal';
 import BellIco from '../Icons/BellIco/BellIco';
 
 type Props = {

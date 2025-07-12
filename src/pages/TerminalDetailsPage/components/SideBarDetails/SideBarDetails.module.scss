@@ -1,33 +1,58 @@
 @import '@utils/global';
 
 .SideBarDetails {
-  max-width: 272px;
+  max-width: 188px;
   width: 100%;
   background-color: $bg-white;
 
+  @include on-l-desktop {
+    max-width: 272px;
+  }
+
   &__content {
     margin: auto;
-    width: 240px;
+    max-width: 180px;
     height: 720px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
+    @include on-l-desktop {
+      max-width: 240px;
+    }
   }
 
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
+
+    @include on-l-desktop {
+      gap: 8px;
+    }
   }
 
   &__item {
-    height: 56px;
+
+    height: 40px;
     display: flex;
     gap: 16px;
     align-items: center;
-    padding: 16px;
+    padding: 8px 8px 8px 16px;
     border-radius: 8px;
     transition: all 0.3s;
+
+    & svg {
+      height: 22px;
+      width: 22px;
+
+      @include on-l-desktop {
+        height: 24px;
+        width: 24px;
+      }
+    }
+
+    @include on-l-desktop {
+      padding: 16px;
+      height: 56px;
+    }
 
     &:hover {
       background-color: $light-hover-green;
@@ -49,10 +74,17 @@
     padding: 16px 8px 16px 24px;
     display: flex;
     gap: 24px;
-    height: 56px;
+    height: 40px;
+    width: 100%;
     align-items: center;
     border: none;
     border-radius: 5px;
+    margin-top: 120px;
+
+    @include on-l-desktop {
+      margin-top: 160px;
+      height: 56px;
+    }
 
     &:hover {
       background-color: $light-green;
@@ -61,17 +93,27 @@
 
     & p {
       font-weight: 400;
-      font-size: 18px;
+      font-size: 14px;
       line-height: 24px;
       color: $dark-blue;
+
+      @include on-l-desktop {
+        font-size: 18px;
+      }
     }
   }
 
   &__text {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 24px;
     color: $dark-blue;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    @include on-l-desktop {
+      font-size: 16px;
+    }
   }
 
   &__arrow {

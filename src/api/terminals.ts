@@ -5,7 +5,7 @@ export const terminals: Terminal[] = [
     id: '1',
     name: 'PAO01',
     status: true,
-    branch: 'Parking, 1st floor, gate B',
+    branch: 'Parking, 1st floor, gate Bуаукауаукпукпукпукпкукпукпупукпукп',
     updated: '2025-05-27T13:33:26',
     amountEUR: 23000,
     amountCZK: 85000,

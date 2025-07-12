@@ -64,8 +64,6 @@ const InfoPanelDetails = () => {
       </div>
 
       <div className={styles.InfoPanelDetails__right}>
-        <p className={styles.InfoPanelDetails__amount}></p>
-
         <div className={styles.InfoPanelDetails__blockAmaunt}>
           <p className={styles.InfoPanelDetails__amount}>{getAmaunt()}</p>
           <div className={styles.InfoPanelDetails__currency} onClick={(e) => e.preventDefault()}>

@@ -2,14 +2,22 @@
 
 .InfoPanelDetails {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 16px 24px;
+  padding: 12px 14px;
   background-color: $dark-blue;
   color: white;
-  height: 81px;
+  height: 59px;
   border-radius: 8px;
-  margin-bottom: 40px;
-  
+  margin-bottom: 16px;
+  gap: 12px;
+
+  @include on-l-desktop {
+    height: 81px;
+    padding: 16px 24px;
+    margin-bottom: 40px;
+  }
+
   &__left {
     display: flex;
     align-items: center;
@@ -18,14 +26,19 @@
   &__right {
     display: flex;
     align-items: center;
+    height: 25px;
+
+    @include on-l-desktop {
+      height: 35px;
+    }
   }
 
   &__update {
-    height: 49px;
+    height: 35px;
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 100%;
     letter-spacing: 0;
     color: $text-main-dark;
@@ -34,17 +47,28 @@
     background-color: $light-green;
     padding: 12px 16px;
 
+    @include on-l-desktop {
+      height: 49px;
+      font-size: 18px;
+    }
+
     &:hover {
       cursor: pointer;
     }
   }
 
   &__ico {
+    width: 12px;
+    height: 12px;
+
+    @include on-l-desktop {
+      width: 14px;
+      height: 14px;
+    }
+
     & path {
       fill: #000;
     }
-
-    
   }
 
   &__blockTime {
@@ -56,26 +80,41 @@
 
   &__timeTitle {
     color: $dark-gray;
-    font-size: 12px;
+    font-size: 8px;
     line-height: 100%;
+
+    @include on-l-desktop {
+      font-size: 12px;
+    }
   }
 
   &__time {
     margin-top: 4px;
     display: flex;
-    gap: 8px;
+    align-items: center;
+    gap: 12px;
+    height: 19px;
+
+    @include on-l-desktop {
+      height: 25px;
+      gap: 8px;
+    }
 
     & p {
       font-weight: 600;
-      font-size: 18px;
+      font-size: 14px;
       line-height: 100%;
+
+      @include on-l-desktop {
+        font-size: 18px;
+      }
     }
   }
   &__status {
     margin-left: 32px;
     border-radius: 8px;
     background-color: $btn-gray;
-    height: 100%;
+    align-self: stretch;
 
     &:hover {
       cursor: pointer;
@@ -84,24 +123,39 @@
 
   &__blockAmaunt {
     display: flex;
+    align-items: center;
     gap: 12px;
   }
 
   &__amount {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 14px;
     line-height: 100%;
+    height: 33px;
+    display: flex;
+    align-items: center;
+
+    @include on-l-desktop {
+      font-size: 18px;
+      height: 25px;
+    }
   }
 
   &__currency {
     display: flex;
-    width: 107px;
+    width: 73px;
     justify-content: space-between;
     position: relative;
     border: 1px solid white;
     border-radius: 16px;
-    padding: 4px 14px 5px 14px;
-    height: 28px;
+    padding: 4px 10px 5px 10px;
+    height: 22px;
+
+    @include on-l-desktop {
+      height: 28px;
+      width: 107px;
+      padding: 4px 14px 5px 14px;
+    }
 
     &:hover {
       cursor: pointer;
@@ -114,26 +168,38 @@
     position: relative;
     z-index: 1;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 10px;
     line-height: 100%;
+
+    @include on-l-desktop {
+      font-size: 14px;
+    }
 
     &_active {
       color: $dark-blue;
     }
   }
+
   &__currencyBtn {
     position: absolute;
     top: 0px;
     right: 1px;
     left: 1px;
     bottom: 1px;
-    width: 52px;
+    width: 36px;
+    height: 18px;
     background-color: white;
-    height: 24px;
     border-radius: 14px;
     transition: all 0.3s;
-    transform: translateX(calc(100% - 1px)) translateY(1px);
+    transform: translateX(calc(100% - 2px)) translateY(1px);
     display: flex;
+
+    @include on-l-desktop {
+      width: 52px;
+      height: 24px;
+      transform: translateX(calc(100% - 1px)) translateY(1px);
+    }
+
     &_left {
       transform: translateX(0) translateY(1px);
     }

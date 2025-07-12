@@ -5,23 +5,35 @@
 
   &__bell {
     position: relative;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__content {
     display: none;
     position: absolute;
     background-color: white;
-    max-width: 487px;
+    max-width: 457px;
     border-radius: 5px;
     z-index: 5;
-    padding: 16px 30px 16px 16px;
+    padding: 8px;
     transition: max-height 0.3s ease;
     overflow-y: hidden;
     box-shadow: 5px 5px 27px 0px #0000001a;
+    font-size: 12px;
+
     &_active {
       display: flex;
       flex-direction: column;
       gap: 8px;
+    }
+
+    @include on-l-desktop {
+      max-width: 487px;
+       padding: 16px 30px 16px 16px;
+       font-size: 16px;
     }
   }
 

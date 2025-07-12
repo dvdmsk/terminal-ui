@@ -3,13 +3,15 @@
 .StatusTerminal {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   padding: 3px 7px 3px 12px;
   background-color: white;
 
   @include on-l-desktop {
     padding: 4px 10px 3px 20px;
+    gap: 16px;
   }
+  
   & p {
     height: 16px;
     font-weight: 600;

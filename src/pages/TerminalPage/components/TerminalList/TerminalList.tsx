@@ -19,22 +19,7 @@ const TerminalList = forwardRef<HTMLDivElement, Props>(({ terminals, itemRefs },
   // and sorting by name or status.
 
   const refs = useRef<(HTMLDivElement | null)[]>([]);
-  // const ref = useRef<HTMLDivElement | null>(null);
 
-  useLayoutEffect(() => {
-    // console.log(refs.current[0]?.clientHeight);
-    // console.log(ref.current?.clientWidth);
-    // console.log(windowHeight);
-    // const list = ref.current;
-    // if (!list) return;
-    // const windowHeight = window.innerHeight;
-    // const computedStyle = window.getComputedStyle(list);
-    // const rowGap = computedStyle.rowGap;
-    // const itemHeight = refs.current[0]?.clientHeight;
-    // const topY = list.scrollTop + list.offsetTop;
-    // console.log(topY);
-    // const maxHeight =
-  }, []);
   return (
     <div className={styles.TerminalList} ref={ref}>
       {terminals.map((terminal, index) => (

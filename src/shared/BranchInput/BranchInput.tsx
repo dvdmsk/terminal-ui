@@ -9,9 +9,12 @@ type Props = {
 };
 const BranchInput: React.FC<Props> = ({ name, className = '' }) => {
   return (
-    <p className={classNames(styles.BranchInput, styles.BranchInput_branch, className)}>
-      {name} <EditIco />
-    </p>
+    <div className={classNames(styles.BranchInput, styles.BranchInput_branch, className)}>
+      <p>{name}</p> 
+      <div>
+        <EditIco />
+      </div>
+    </div>
   );
 };
 

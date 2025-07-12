@@ -2,17 +2,25 @@
 
 .TablePaymentBoxes {
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   border-collapse: collapse;
+
+  @include on-l-desktop {
+    margin-bottom: 24px;
+  }
 
   &__toggle {
     display: flex;
     justify-content: space-between;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 100%;
     padding: 6px 8px;
     background-color: $gray;
+
+    @include on-l-desktop {
+      font-size: 18px;
+    }
   }
 
   &__table {
@@ -26,12 +34,17 @@
   }
 
   & thead td {
-    height: 52px;
+    height: 24px;
     padding: 0;
     padding-bottom: 12px;
-    font-size: 12px;
+    font-size: 8px;
     line-height: 100%;
     color: $text-main-dark;
+
+    @include on-l-desktop {
+      font-size: 12px;
+      height: 52px;
+    }
   }
 
   & tbody tr {
@@ -50,11 +63,25 @@
     & td:last-of-type {
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
+      white-space: nowrap;
+      box-sizing: border-box;
     }
 
     & td {
       height: 30px;
-      padding-left: 4px;
+      padding-inline: 11px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 100%;
+      letter-spacing: 0;
+
+      @include on-l-desktop {
+        font-size: 16px;
+      }
+    }
+
+    & td:first-of-type {
+      padding-left: 0px;
     }
 
     &:last-of-type {
@@ -68,6 +95,18 @@
     display: flex;
     gap: 8px;
     align-items: center;
+  }
+
+  &__edit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  &__edit_ico {
+    width: 12px;
+    height: 12px;
   }
 }
 
