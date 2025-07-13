@@ -182,12 +182,10 @@
     left: 1px;
     right: 1px;
     transition: all 0.3s;
-    transform: translateX(calc(100% + 1.5px)) translateY(1.5px);
+    transform: translateX(calc(100% + 1.5px)) translateY(1px);
     flex-shrink: 0;
 
-    &_left {
-      transform: translateX(0) translateY(1px);
-    }
+    
 
     &:hover {
       cursor: pointer;
@@ -198,6 +196,10 @@
       height: 28px;
       min-height: 28px;
       transform: translateX(calc(100% - 1.5px)) translateY(0.5px);
+    }
+
+    &_left {
+      transform: translateX(0) translateY(1px);
     }
   }
 
@@ -264,10 +266,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5.5px;
+    gap: 10px;
     border-radius: 8px;
     border: none;
     flex-shrink: 0;
+    padding: 8px 24px;
 
     @include on-l-desktop {
       margin-top: 16px;
@@ -275,6 +278,17 @@
       height: 41px;
       min-height: 41px;
     }
+
+    & svg {
+      width: 10px;
+      height: 10px;
+
+      @include on-l-desktop {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
     & p {
       font-weight: 600;
       font-size: 12px;
