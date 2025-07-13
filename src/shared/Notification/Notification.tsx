@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import styles from './Notification.module.scss';
 import classNames from 'classnames';
 import NotificationPortal from '../Portals/NotificationPortal';
@@ -20,10 +20,35 @@ const Notification: React.FC<Props> = ({
   anchorRef = null,
 }) => {
   const [isActive, setIsActive] = useState(false);
+  const [isPositioned, setIsPositioned] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
+
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.preventDefault();
-    setIsActive((prev) => !prev);
+    if (!isActive) {
+      setShouldRender(true);
+      setIsActive(true);
+      setIsPositioned(false);
+
+      // Затримка рендерингу до наступного кадру
+      requestAnimationFrame(() => {
+        if (anchorRef?.current && bellRef.current) {
+          const rect = anchorRef.current.getBoundingClientRect();
+          const bell = bellRef.current.getBoundingClientRect();
+          setAnchorCoords({
+            top: bell.top + bell.height,
+            left: rect.left + window.scrollX,
+            width: rect.width,
+          });
+          setIsPositioned(true);
+        }
+      });
+    } else {
+      setIsActive(false);
+      setShouldRender(false);
+    }
   };
+
   const ref = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const bellRef = useRef<HTMLDivElement>(null);
@@ -31,29 +56,18 @@ const Notification: React.FC<Props> = ({
   const [anchorCoords, setAnchorCoords] = useState({ top: 0, left: 0, width: 0 });
   const [contentWidth, setContentWidth] = useState(0);
 
-  useEffect(() => {
-    if (isActive && contentRef.current) {
+  useLayoutEffect(() => {
+    if (shouldRender && contentRef.current) {
       const width = contentRef.current.offsetWidth;
       setContentWidth(width);
     }
-  }, [isActive]);
+  }, [shouldRender]);
 
-  useEffect(() => {
-    if (isActive && anchorRef?.current && bellRef.current) {
-      const rect = anchorRef.current.getBoundingClientRect();
-      const bell = bellRef.current.getBoundingClientRect();
-      setAnchorCoords({
-        top: bell.top + bell.height,
-        left: rect.left + window.scrollX,
-        width: rect.width,
-      });
-    }
-  }, [isActive, anchorRef]);
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
         setIsActive(false);
+        setShouldRender(false);
       }
     };
 
@@ -63,7 +77,7 @@ const Notification: React.FC<Props> = ({
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = contentRef.current;
     if (!container) return;
 
@@ -91,7 +105,7 @@ const Notification: React.FC<Props> = ({
       container.style.maxHeight = 'none';
       container.style.overflowY = 'visible';
     }
-  }, [notifications, isActive]);
+  }, [notifications, shouldRender]);
 
   return (
     <div className={classNames(styles.Notification, className)} onClick={handleClick} ref={ref}>
@@ -100,13 +114,16 @@ const Notification: React.FC<Props> = ({
         {notifications.length !== 0 && <div className={styles.circle}></div>}
       </div>
 
-      {notifications.length !== 0 && isActive && (
+      {notifications.length !== 0 && shouldRender && (
         <NotificationPortal>
           <div
             ref={contentRef}
             className={classNames(
               styles.Notification__content,
               styles.Notification__content_active,
+              {
+                [styles.Notification__content_positioned]: isPositioned,
+              },
               classContent,
             )}
             style={{
