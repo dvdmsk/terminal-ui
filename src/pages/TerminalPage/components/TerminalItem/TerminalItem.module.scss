@@ -7,14 +7,14 @@
   background-color: $light-gray;
   border-radius: 9px;
   padding: 16px 18px 14px 16px;
-  max-height: 172px;
+  // max-height: 172px;
   gap: 20px;
   transform: translateZ(0);
   backface-visibility: hidden;
 
   @include on-l-desktop {
     padding: 20px 20px 23px;
-    max-height: 203px;
+    // max-height: 219px;
   }
 
   &__left {
@@ -182,7 +182,7 @@
     left: 1px;
     right: 1px;
     transition: all 0.3s;
-    transform: translateX(calc(100% + 1.5px)) translateY(1px);
+    transform: translateX(calc(100% + 1.5px)) translateY(1.5px);
     flex-shrink: 0;
 
     &_left {
@@ -197,6 +197,7 @@
       width: 52px;
       height: 28px;
       min-height: 28px;
+      transform: translateX(calc(100% - 1.5px)) translateY(0.5px);
     }
   }
 
@@ -207,6 +208,10 @@
     gap: 16px;
     margin-top: 6px;
     transform: translateZ(0);
+
+    @include on-l-desktop {
+      margin-top: 0px;
+    }
   }
 
   &__status {
