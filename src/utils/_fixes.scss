@@ -1,0 +1,37 @@
+// Additional fixes for scaling and rendering issues
+
+// Fix for subpixel rendering
+.subpixel-fix {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+// Ensure consistent sizing for flex items
+.flex-size-fixed {
+  flex-shrink: 0;
+  flex-grow: 0;
+  min-height: inherit;
+  min-width: inherit;
+}
+
+// Fix for height inconsistencies
+.height-fixed {
+  height: inherit;
+  min-height: inherit;
+  max-height: inherit;
+}
+
+// Prevent text scaling issues
+.text-size-fixed {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+// Force hardware acceleration
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}

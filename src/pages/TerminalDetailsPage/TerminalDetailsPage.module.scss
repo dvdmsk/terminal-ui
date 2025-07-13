@@ -2,7 +2,11 @@
 
 .TerminalDetailsPage {
   display: flex;
-  margin-top: 80px;
+  margin-top: 50px;
+
+  @include on-l-desktop {
+    margin-top: 77px;
+  }
 
   &__main {
     width: 100%;

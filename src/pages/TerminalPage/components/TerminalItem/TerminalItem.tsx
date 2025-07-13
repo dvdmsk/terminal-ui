@@ -67,7 +67,10 @@ const TerminalItem = forwardRef<HTMLDivElement, Props>(({ terminal }, ref) => {
 
   return (
     <div ref={ref}>
-      <Link to={`/terminal/${terminal.id}`} className={styles.TerminalItem}>
+      <Link
+        to={`/terminal/${terminal.id}`}
+        className={`${styles.TerminalItem} force-gpu gpu-accelerated`}
+      >
         <div className={styles.TerminalItem__left}>
           <p
             className={classNames(styles.TerminalItem__label, styles.TerminalItem__label_terminal)}

@@ -40,11 +40,11 @@ const TablePaymentBoxes: React.FC<Props> = ({ data, className = '' }) => {
       >
         <table className={classNames(styles.TablePaymentBoxes, className)}>
           <colgroup>
-            <col style={{ width: '94px' }} />
+            <col style={{ width: '64px' }} />
             <col style={{ width: '58px' }} />
-            <col style={{ width: '74px' }} />
-            <col style={{ width: '86px' }} />
-            <col style={{ width: '112px' }} />
+            <col style={{ width: '49px' }} />
+            <col style={{ width: '58px' }} />
+            <col style={{ width: '49px' }} />
             <col style={{ width: '106px' }} />
           </colgroup>
           <thead>

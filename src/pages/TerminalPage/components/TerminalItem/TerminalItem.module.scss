@@ -9,6 +9,8 @@
   padding: 16px 18px 14px 16px;
   max-height: 172px;
   gap: 20px;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 
   @include on-l-desktop {
     padding: 20px 20px 23px;
@@ -20,12 +22,14 @@
     flex-direction: column;
     min-width: 0;
     flex: 1;
+    transform: translateZ(0);
   }
 
   &__right {
     display: flex;
     flex-direction: column;
     align-items: end;
+    transform: translateZ(0);
   }
 
   &__label {
@@ -34,12 +38,15 @@
     line-height: 100%;
     color: $dark-gray;
     height: 11px;
-    display:flex;
+    min-height: 11px;
+    display: flex;
     align-items: center;
+    flex-shrink: 0;
 
     @include on-l-desktop {
       font-size: 12px;
       height: 16px;
+      min-height: 16px;
     }
 
     &_branch {
@@ -68,10 +75,13 @@
     margin-top: 4px;
     display: flex;
     align-items: center;
+    min-height: 25px;
+    flex-shrink: 0;
 
     @include on-l-desktop {
       font-size: 22px;
-      height: 30px;
+      height: 33px;
+      min-height: 33px;
     }
 
     &_branch {
@@ -83,9 +93,13 @@
 
   &__blockAmaunt {
     display: flex;
-    align-items: center;
     gap: 24px;
-    margin-top: 8px;
+    margin-top: 15px;
+    transform: translateZ(0);
+
+    @include on-l-desktop {
+      margin-top: 16px;
+    }
   }
 
   &__amaunt {
@@ -95,28 +109,36 @@
     font-size: 26px;
     line-height: 100%;
     height: 35px;
+    min-height: 35px;
+    flex-shrink: 0;
 
     @include on-l-desktop {
       font-weight: 700;
       font-size: 32px;
       height: 44px;
+      min-height: 44px;
     }
   }
 
   &__currency {
+    margin-top: 5px;
     border: 1px solid $dark-blue;
     border-radius: 16px;
     display: flex;
     position: relative;
     height: 28px;
+    min-height: 28px;
     align-items: center;
     justify-content: space-between;
     padding: 0 10px 0 9px;
     width: 94px;
+    flex-shrink: 0;
 
     @include on-l-desktop {
       height: 32px;
+      min-height: 32px;
       width: 107px;
+      margin-top: 6px;
     }
 
     &:hover {
@@ -130,16 +152,18 @@
     font-size: 14px;
     line-height: 100%;
     height: 19px;
+    min-height: 19px;
     display: flex;
-
     align-items: center;
     position: relative;
     z-index: 1;
+    flex-shrink: 0;
 
     @include on-l-desktop {
       font-size: 18px;
       line-height: 100%;
       height: 25px;
+      min-height: 25px;
     }
 
     &_active {
@@ -152,12 +176,14 @@
     top: 0px;
     width: 44px;
     height: 24px;
+    min-height: 24px;
     border-radius: 14px;
     background-color: $green;
     left: 1px;
     right: 1px;
     transition: all 0.3s;
     transform: translateX(calc(100% + 1.5px)) translateY(1px);
+    flex-shrink: 0;
 
     &_left {
       transform: translateX(0) translateY(1px);
@@ -170,6 +196,7 @@
     @include on-l-desktop {
       width: 52px;
       height: 28px;
+      min-height: 28px;
     }
   }
 
@@ -178,6 +205,8 @@
     justify-content: end;
     align-items: center;
     gap: 16px;
+    margin-top: 6px;
+    transform: translateZ(0);
   }
 
   &__status {
@@ -198,6 +227,16 @@
     margin-top: 4px;
     display: flex;
     gap: 8px;
+    height: 19px;
+    min-height: 19px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    @include on-l-desktop {
+      height: 25px;
+      min-height: 25px;
+    }
 
     & p {
       font-weight: 600;
@@ -215,6 +254,7 @@
     margin-top: 20px;
     width: 112px;
     height: 32px;
+    min-height: 32px;
     background-color: $green;
     display: flex;
     justify-content: center;
@@ -222,11 +262,13 @@
     gap: 5.5px;
     border-radius: 8px;
     border: none;
+    flex-shrink: 0;
 
     @include on-l-desktop {
       margin-top: 16px;
       width: 138px;
       height: 41px;
+      min-height: 41px;
     }
     & p {
       font-weight: 600;

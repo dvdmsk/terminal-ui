@@ -1,0 +1,39 @@
+// Fix for scaling issues on different screen sizes
+// This file contains CSS properties to ensure consistent rendering
+
+// Prevent text size adjustment on zoom
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+// Force hardware acceleration for better rendering
+.force-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+// Ensure consistent box sizing
+* {
+  box-sizing: border-box;
+}
+
+// Fix for flex items that should maintain their size
+.flex-fixed {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+// Ensure minimum heights are respected
+.min-height-fixed {
+  min-height: inherit;
+  height: inherit;
+}
+
+// Prevent subpixel rendering issues
+.subpixel-fix {
+  transform: translateZ(0);
+  will-change: transform;
+}
