@@ -29,6 +29,7 @@
   }
 
   &__table {
+    margin-top: 8px;
     transition: all 0.3s;
     max-height: 0;
     overflow: hidden;
@@ -36,10 +37,16 @@
     &_active {
       max-height: 300px;
     }
+
+    @include on-l-desktop {
+      margin-top: 12px;
+    }
   }
 
   & thead td {
+    vertical-align: top;
     height: 24px;
+    padding-top: 4px;
     padding-inline: 4px;
     padding-bottom: 12px;
     font-size: 8px;
@@ -63,7 +70,6 @@
       padding-block: 4px;
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
-      
     }
 
     & td:last-of-type {
@@ -71,7 +77,6 @@
       border-bottom-right-radius: 5px;
       white-space: nowrap;
       box-sizing: border-box;
-      
     }
 
     & td {
@@ -85,6 +90,10 @@
       @include on-l-desktop {
         font-size: 16px;
       }
+    }
+
+    & td:nth-last-child(-n + 3) {
+      padding-left: 4px;
     }
 
     & td:first-of-type {

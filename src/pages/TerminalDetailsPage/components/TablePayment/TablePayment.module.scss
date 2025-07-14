@@ -14,7 +14,7 @@
     height: 27px;
     padding: 0;
     padding-bottom: 12px;
-    font-size: 12px;
+    font-size: 8px;
     line-height: 100%;
     color: $text-main-dark;
     padding-inline: 8px;
@@ -22,6 +22,7 @@
     @include on-l-desktop {
       height: 52px;
       padding-inline: 32px;
+      font-size: 12px;
     }
 
     &:first-of-type {
