@@ -142,7 +142,7 @@
   &__edit {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 4px;
   }
 
@@ -201,12 +201,15 @@
   }
   .cell4_content {
     max-width: 86px;
+    padding-right: 10px;
   }
   .cell5_content {
     max-width: 112px;
+    padding-right: 30px;
   }
   .cell6_content {
     max-width: 106px;
+    padding-right: 10px;
   }
 }
 
