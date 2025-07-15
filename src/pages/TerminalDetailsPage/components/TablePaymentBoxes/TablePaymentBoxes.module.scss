@@ -1,9 +1,28 @@
 @import '@utils/global';
 
+.col1 {
+  width: 87px;
+}
+.col2 {
+  width:68px;
+}
+.col3 {
+  width: 58px;
+}
+.col4 {
+  width: 58px;
+}
+.col5 {
+  width: 58px;
+}
+.col6 {
+  width: 78px;
+}
+
 .TablePaymentBoxes {
   width: 100%;
   margin-bottom: 12px;
-  border-collapse: collapse;
+  border-collapse:  collapse;
 
   @include on-l-desktop {
     margin-bottom: 24px;
@@ -45,17 +64,19 @@
 
   & thead td {
     vertical-align: top;
-    height: 24px;
-    padding-top: 4px;
-    padding-inline: 4px;
+    padding: 4px;
     padding-bottom: 12px;
+    // padding-top: 4px;
+    // padding-inline: 4px;
+    // height: 34px;
     font-size: 8px;
     line-height: 100%;
     color: $text-main-dark;
 
     @include on-l-desktop {
       font-size: 12px;
-      height: 52px;
+      padding-bottom: 12px;
+      // height: 44px;
     }
   }
 
@@ -121,13 +142,71 @@
   &__edit {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 4px;
   }
 
   &__edit_ico {
     width: 12px;
     height: 12px;
+  }
+}
+
+.cell1_content {
+  max-width: 69px;
+}
+.cell2_content {
+  max-width: 50px;
+}
+.cell3_content {
+  max-width: 50px;
+}
+.cell4_content {
+  max-width: 60px;
+}
+.cell5_content {
+  max-width: 60px;
+}
+.cell6_content {
+  max-width: 60px;
+}
+
+@include on-l-desktop {
+  .col1 {
+    width: 111px;
+  }
+  .col2 {
+    width: 65px;
+  }
+  .col3 {
+    width: 81px;
+  }
+  .col4 {
+    width: 93px;
+  }
+  .col5 {
+    width: 119px;
+  }
+  .col6 {
+    width: 106px;
+  }
+  .cell1_content {
+    max-width: 94px;
+  }
+  .cell2_content {
+    max-width: 58px;
+  }
+  .cell3_content {
+    max-width: 74px;
+  }
+  .cell4_content {
+    max-width: 86px;
+  }
+  .cell5_content {
+    max-width: 112px;
+  }
+  .cell6_content {
+    max-width: 106px;
   }
 }
 

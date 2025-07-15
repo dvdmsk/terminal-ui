@@ -40,48 +40,57 @@ const TablePaymentBoxes: React.FC<Props> = ({ data, className = '' }) => {
       >
         <table className={classNames(styles.TablePaymentBoxes, className)}>
           <colgroup>
-            <col style={{ width: '64px' }} />
-            <col style={{ width: '58px' }} />
-            <col style={{ width: '49px' }} />
-            <col style={{ width: '58px' }} />
-            <col style={{ width: '49px' }} />
-            <col style={{ width: '106px' }} />
+            <col className={styles.col1} />
+            <col className={styles.col2} />
+            <col className={styles.col3} />
+            <col className={styles.col4} />
+            <col className={styles.col5} />
+            <col className={styles.col6} />
           </colgroup>
           <thead>
             <tr>
-              <td>{t('denomination')}</td>
-              <td>{t('totalCount')}</td>
-              <td>{t('totalAmount')}</td>
-              <td>{t('warningCount')}</td>
-              <td>{t('criticalCount')}</td>
-              <td>{t('maxCount')}</td>
+              <td className={styles.cell1}><div className={styles.cell1_content}>{t('denomination')}</div></td>
+              <td className={styles.cell2}><div className={styles.cell2_content}>{t('totalCount')}</div></td>
+              <td className={styles.cell3}><div className={styles.cell3_content}>{t('totalAmount')}</div></td>
+              <td className={styles.cell4}><div className={styles.cell4_content}>{t('warningCount')}</div></td>
+              <td className={styles.cell5}><div className={styles.cell5_content}>{t('criticalCount')}</div></td>
+              <td className={styles.cell6}><div className={styles.cell6_content}>{t('maxCount')}</div></td>
             </tr>
           </thead>
           <tbody>
             {data.map((td, ind) => (
               <tr key={ind}>
                 <td>
-                  <div className={styles.TablePaymentBoxes__denomination}>
+                  <div
+                    className={classNames(
+                      styles.cell1_content,
+                      styles.TablePaymentBoxes__denomination,
+                    )}
+                  >
                     {td.type === 'coin' ? <CoinIco /> : <MoneyIco />}
                     {formatAmountDecimal(td.denomination)}
                   </div>
                 </td>
-                <td>{formatAmountInteger(td.totalCount)}</td>
-                <td>{formatAmountInteger(td.totalAmount)}</td>
                 <td>
-                  <div className={styles.TablePaymentBoxes__edit}>
+                  <div className={styles.cell2_content}>{formatAmountInteger(td.totalCount)}</div>
+                </td>
+                <td>
+                  <div className={styles.cell3_content}>{formatAmountInteger(td.totalAmount)}</div>
+                </td>
+                <td>
+                  <div className={classNames(styles.cell4_content, styles.TablePaymentBoxes__edit)}>
                     {formatAmountInteger(td.warningCount)}
                     <EditIco className={styles.TablePaymentBoxes__edit_ico} />
                   </div>
                 </td>
                 <td>
-                  <div className={styles.TablePaymentBoxes__edit}>
+                  <div className={classNames(styles.cell5_content, styles.TablePaymentBoxes__edit)}>
                     {formatAmountInteger(td.criticalCount)}
                     <EditIco className={styles.TablePaymentBoxes__edit_ico} />
                   </div>
                 </td>
                 <td>
-                  <div className={styles.TablePaymentBoxes__edit}>
+                  <div className={classNames(styles.cell6_content, styles.TablePaymentBoxes__edit)}>
                     {formatAmountInteger(td.maxCount)}
                     <EditIco className={styles.TablePaymentBoxes__edit_ico} />
                   </div>
@@ -89,9 +98,22 @@ const TablePaymentBoxes: React.FC<Props> = ({ data, className = '' }) => {
               </tr>
             ))}
             <tr>
-              <td>{t('total')}</td>
-              <td>{formatAmountInteger(218)}</td>
-              <td>{formatAmountInteger(10000)}</td>
+              <td>
+                <div
+                  className={classNames(
+                    styles.cell1_content,
+                    styles.TablePaymentBoxes__denomination,
+                  )}
+                >
+                  {t('total')}
+                </div>
+              </td>
+              <td>
+                <div className={styles.cell2_content}>{formatAmountInteger(218)}</div>
+              </td>
+              <td>
+                <div className={styles.cell3_content}>{formatAmountInteger(10000)}</div>
+              </td>
             </tr>
           </tbody>
         </table>
